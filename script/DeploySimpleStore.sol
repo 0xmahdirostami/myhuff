@@ -9,7 +9,7 @@ interface SimpleStore {
   function getValue() external returns (uint256);
 }
 
-contract Deploy is Script {
+contract DeploySimpleStore is Script {
   function run() public returns (SimpleStore simpleStore) {
     simpleStore = SimpleStore(HuffDeployer.deploy("SimpleStore"));
   }

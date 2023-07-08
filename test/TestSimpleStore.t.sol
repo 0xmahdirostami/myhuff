@@ -5,21 +5,21 @@ import "foundry-huff/HuffDeployer.sol";
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 
-contract SimpleStoreTest is Test {
+contract TestSimpleStoreTest is Test {
     /// @dev Address of the SimpleStore contract.
-    SimpleStore public simpleStore;
+    SimpleStore public simplestore;
 
     /// @dev Setup the testing environment.
     function setUp() public {
-        simpleStore = SimpleStore(HuffDeployer.deploy("SimpleStore"));
+        simplestore = SimpleStore(HuffDeployer.deploy("SimpleStore"));
     }
 
     /// @dev Ensure that you can set and get the value.
     function testSetAndGetValue(uint256 value) public {
-        simpleStore.setValue(value);
+        simplestore.setValue(value);
         console.log(value);
-        console.log(simpleStore.getValue());
-        assertEq(value, simpleStore.getValue());
+        console.log(simplestore.getValue());
+        assertEq(value, simplestore.getValue());
     }
 }
 
