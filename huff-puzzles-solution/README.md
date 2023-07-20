@@ -14,7 +14,7 @@ Solution: [CalldataLength.huff](https://github.com/0xmahdirostami/myhuff/blob/ma
 
 Puzzle 3: huff code that retrieves the ether balance of the address that sent the transaction, also known as msg.sender in solidity.
 <br>
-Solution:
+Solution: [MyEtherBalance.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/MyEtherBalance.huff)
 
 ---
 
