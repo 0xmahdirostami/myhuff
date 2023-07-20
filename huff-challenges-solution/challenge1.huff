@@ -1,0 +1,17 @@
+
+/**
+ *  Write the minimal Huff code for a contract that returns 
+ *  the current block number if called
+*/
+
+#define macro MAIN() = takes(0) returns(0) {
+    //get timestamp for current block
+    timestamp     //[timestamp]
+    0x00          //[0, timestamp]
+    mstore        //[]
+
+    //return timestamp
+    0x20          //[32]
+    0x00          //[0,32]
+    return
+}
