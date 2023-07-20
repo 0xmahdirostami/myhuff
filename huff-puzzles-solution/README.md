@@ -2,13 +2,13 @@ Solutions for [huff-puzzles](https://github.com/RareSkills/huff-puzzles)
 
 Puzzle 1: huff code to get and return the amount of ether sent as part of that call
 <br>
-Solution:
+Solution: [CallValue.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/CallValue.huff)
 
 ---
 
 Puzzle 2: huff code to get and return the length of this calldata
 <br>
-Solution:
+Solution: [CalldataLength.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/CalldataLength.huff)
 
 ---
 
