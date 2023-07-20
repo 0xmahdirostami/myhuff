@@ -5,12 +5,12 @@
 */
 
 #define macro MAIN() = takes(0) returns(0) {
-    //get timestamp for current block
-    timestamp     //[timestamp]
-    0x00          //[0, timestamp]
+    //get block number for current block
+    number        //[number]
+    0x00          //[0, number]
     mstore        //[]
 
-    //return timestamp
+    //return number
     0x20          //[32]
     0x00          //[0,32]
     return
