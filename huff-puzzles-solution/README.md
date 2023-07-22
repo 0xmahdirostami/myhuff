@@ -20,7 +20,7 @@ Solution: [MyEtherBalance.huff](https://github.com/0xmahdirostami/myhuff/blob/ma
 
 Puzzle 4: a function that takes in a uint256, adds 1 to it and returns the new value
 <br>
-Solution:
+Solution: [Add1.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/Add1.huff)
 
 ---
 
