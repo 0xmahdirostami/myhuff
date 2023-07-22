@@ -1,0 +1,19 @@
+
+/**
+ *  Write the most efficient possible Huff contract that 
+*   returns true (1) if the input is an even number and false (0) if it is odd.
+*/
+
+
+#define macro MAIN() = takes (0) returns (0) {
+    returndatasize  // [output of call size]
+    calldataload    // [data] 
+    0x01            // [1, data]
+    and             // [data[-1]]
+    iszero          // [(data[-1]==0)]  
+    returndatasize  // [output of call size, (data[-1]==0)]
+    mstore          // []   
+    calldatasize    // [input data size]
+    returndatasize  // [output of call size, input data size]
+    return
+}
