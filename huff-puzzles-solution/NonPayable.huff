@@ -9,5 +9,17 @@
  */
 
 #define macro MAIN() = takes(0) returns(0) {
+    callvalue   // [callvalue]
+    iszero      // [callvalue == 0]
+    sucess      // [dispatcher]
+    jumpi       // jump if callvalue == 0
 
+    push0
+    push0
+    revert
+
+    sucess:
+    push0
+    push0
+    return
 }

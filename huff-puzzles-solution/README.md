@@ -32,7 +32,7 @@ Solution: [Multiply.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huf
 
 Puzzle 6: huff code that reverts if ether is sent with the transaction.
 <br>
-Solution:
+Solution: [NonPayable.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/NonPayable.huff)
 
 ---
 
