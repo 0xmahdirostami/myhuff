@@ -26,7 +26,7 @@ Solution: [Add1.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-pu
 
 Puzzle 5: a function named `multiply` that takes in 2 uint256s, and returns their product. Be sure to revert on overflow
 <br>
-Solution:
+Solution: [Multiply.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/Multiply.huff)
 
 ---
 
