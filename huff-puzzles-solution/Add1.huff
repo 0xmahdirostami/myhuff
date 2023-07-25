@@ -13,5 +13,49 @@
 
 
 #define macro MAIN() = takes(0) returns(0) {
+    0x00
+    calldataload           // [calldata]
+    0xe0                // [224, calldata]
+    shr                 // [function selector]
 
+    __FUNC_SIG(add1)    // [function selector(add1), function selector]
+    eq                  // [function selector(add1)==function selector]
+    add1jump            // [dispatch, function selector(add1)==function selector]
+    jumpi               // jump if (function selector(add1)==function selector)
+
+    // revert if !(function selector(add1)==function selector)
+    0x00 
+    0x00 
+    revert
+
+    // dispatch
+    add1jump:
+        add1()
+}
+
+#define macro add1() = takse(0) returns(0) {
+    0x04            // [4]
+    calldataload    // [value]
+    dup1            // [value, value]
+    dup1            // [value, value, value]
+    0x01            // [1, value, value, value]
+    add             // [value+1, value, value]
+    gt              // [(value+1>value), value]
+    sucessjump      // [dispatch, (value+1>value), value]
+    jumpi           // jump if (value+1>value))
+
+    // revert if overflow
+    0x00 
+    0x00 
+    revert
+
+    // dispatch
+    sucessjump:
+    0x01            // [1, value]
+    add             // [1+value]
+    0x00            // [0, 1+value]
+    mstore          // []
+    0x20            // [32]
+    0x00            // [0, 32]
+    return
 }
