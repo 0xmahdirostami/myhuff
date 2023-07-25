@@ -1,5 +1,5 @@
-3 main aim of this repositoy:
+3 main aims of this repository:
 
-1. Huff challendge solutions
-2. Huff puzzles solutions -- [huff-puzzles](https://github.com/RareSkills/huff-puzzles)
+1. Huff challenge solutions
+2. [huff-puzzles](https://github.com/RareSkills/huff-puzzles) solutions -- 
 3. Huff projects
