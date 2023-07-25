@@ -42,7 +42,7 @@ Puzzle 7: huff code that mimics 2 solidity functions.
 - the second named `bar()` that simply returns 3.
 
 <br>
-Solution:
+Solution: [FooBar.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/FooBar.huff)
 
 ---
 
