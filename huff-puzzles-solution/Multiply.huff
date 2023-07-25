@@ -13,54 +13,71 @@
 
 
 #define macro MAIN() = takes(0) returns(0) {
-    returndatasize          // [0]
+    push0                   // [0]
     calldataload            // [calldata]
     0xe0                    // [224, calldata]
     shr                     // [function selector]
     __FUNC_SIG(multiply)    // [function selector(multiply), function selector]
     eq                      // [function selector(multiply)==function selector]
-    multiply                // [dispatch, function selector(multiply)==function selector]
+    multiplyJump            // [dispatch, function selector(multiply)==function selector]
     jumpi                   // jump if (function selector(multiply)==function selector)
-
-
-    // dispatch
-    multiply:
-        multiply()
 
     // revert if !(function selector(add1)==function selector)
     0x00 
     0x00 
     revert
+
+    // dispatch
+    multiplyJump:
+        multiply()
+
+
 }
 
 #define macro multiply() = takse(0) returns(0) {
     0x04            // [4]
     calldataload    // [a]
     dup1            // [a, a]
-    0x24            // [4]
+    0x24            // [36, a, a]
     calldataload    // [b, a, a]
     dup1            // [b, b, a, a]
     swap2           // [a, b, b, a]
     mul             // [(a*b), b, a]
     dup1            // [(a*b), (a*b), b, a]
+
+    // check if result is zero
+    iszero          // [0==(a*b), (a*b), b, a]
+    zeroJump        // [dispatch, 0==(a*b), (a*b), b, a]
+    jumpi           // jump if 0==(a*b)
+                    // [dispatch, 0, (a*b), b, a]
+    pop        
+    pop             // [(a*b), b, a]
+    dup1            // [(a*b), (a*b), b, a]
     swap3           // [a, (a*b), b, (a*b)]
-    swap11          // [(a*b), a, b, (a*b)]
+    swap1           // [(a*b), a, b, (a*b)]
     div             // [(a*b)/a, b, (a*b)]
     eq              // [((a*b)/a)==b, (a*b)]
-    sucess          // [dispatch, ((a*b)/a)==b, (a*b)]
+    successJump      // [dispatch, ((a*b)/a)==b, (a*b)]
     jumpi           // jump if ((a*b)/a)==b
-
-
-    // dispatch
-    sucess:
-    0x00            // [0, (a*b)]
-    mstore          // []
-    0x20            // [32]
-    0x00            // [0, 32]
-    return
 
     // revert if overflow
     0x00 
     0x00 
     revert
+
+    // dispatch
+    zeroJump:
+        0x00
+        0x00
+        mstore
+        0x20            // [32]
+        0x00            // [0, 32]
+        return
+        
+    successJump:
+        0x00            // [0, (a*b)]
+        mstore          // []
+        0x20            // [32]
+        0x00            // [0, 32]
+        return
 }
