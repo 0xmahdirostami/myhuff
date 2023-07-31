@@ -50,8 +50,7 @@ Puzzle 8: 2 functions...
 - One named `store()` that takes one function argument and stores it in storage slot 0,
 - the second named `read()` that simply returns what is stored at storage slot 0.
 
-<br>
-Solution:
+Solution: [SimpleStore.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/SimpleStore.huff)
 
 ---
 
