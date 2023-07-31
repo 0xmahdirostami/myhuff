@@ -56,13 +56,13 @@ Solution: [SimpleStore.huff](https://github.com/0xmahdirostami/myhuff/blob/main/
 
 Puzzle 9: huff code that reverts (all the time) with the custom error `OnlyHuff()`
 <br>
-Solution:
+Solution: [RevertCustom.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/RevertCustom.huff)
 
 ---
 
 Puzzle 10: huff code that reverts (all the time) with the string error message `Only Huff`
 <br>
-Solution:
+Solution: [RevertString.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/RevertString.huff)
 
 ---
 
