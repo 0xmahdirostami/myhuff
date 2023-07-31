@@ -42,10 +42,10 @@
     shr                     // [function selector]
     dup1                    // [function selector, function selector]
     __FUNC_SIG(store)       // [function selector(store), function selector, function selector]
-    eq                      // [function selector(store)==function selector]
-    store                   // [dispatch, function selector(store)==function selector]
+    eq                      // [function selector(store)==function selector, function selector]
+    store                   // [dispatch, function selector(store)==function selector, function selector]
     jumpi                   // jump if (function selector(store)==function selector)]
-    __FUNC_SIG(read)        // [function selector(read), function selector, function selector]
+    __FUNC_SIG(read)        // [function selector(read), function selector]
     eq                      // [function selector(read)==function selector]
     read                    // [dispatch, function selector(read)==function selector]
     jumpi                   // jump if (function selector(read)==function selector)
