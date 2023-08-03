@@ -22,7 +22,7 @@
     0x20                                     // [0x20, 0x09]
     mstore                                   // []
 
-    // store bytes for "Hello, world!" at 0x40
+    // store bytes for "Only Huff" at 0x40
     __RIGHTPAD(0x4f6e6c792048756666)         // ["Only Huff"]
     0x40                                     // [0x40, "Only Huff"]
     mstore                                   // []
@@ -32,3 +32,4 @@
     0x00                                     // [0x00, 0x60]
     revert                                   // []
 } 
+

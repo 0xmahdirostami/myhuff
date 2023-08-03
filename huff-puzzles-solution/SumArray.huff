@@ -11,6 +11,31 @@
 #define function sumArray(uint256[]) payable returns(uint256)
 
 
-#define macro MAIN() = takes(0) returns(0) {
+#define macro sumArray() = takes(0) returns(0) {
+    0x04                    // [0]
+    calldataload            // [calldata]
+    0x20                    // [32, calldata]
+    calldatasize            // [calldatasize, 32, calldata]
+    div                     // [calldatasize//32, calldata]
 
+}
+
+#define macro MAIN() = takes(0) returns(0) {
+    push0                   // [0]
+    calldataload            // [calldata]
+    0xe0                    // [224, calldata]
+    shr                     // [function selector]
+    __FUNC_SIG(sumArray)    // [function selector(sumArray), function selector]
+    eq                      // [function selector(sumArray)==function selector]
+    sumArray                // [dispatch, function selector(sumArray)==function selector]
+    jumpi                   // jump if (function selector(sumArray)==function selector)]
+
+    // revert if !(function selector(sumArray)==function selector)
+    0x00 
+    0x00 
+    revert
+
+    // dispatch
+    sumArray:
+        sumArray()
 }

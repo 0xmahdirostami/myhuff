@@ -9,13 +9,13 @@
 */
 
 #define macro MAIN() = takes(0) returns(0) {
-    //get msg.value for current call and return
-    callvalue                //[msg.value]
-    0x00                     //[0, msg.value]
-    mstore                              //[]
+    // get call.value for current call and return
+    callvalue     // [call.value]
+    0x00          // [0, call.value]
+    mstore        // []
 
-    //return msg.value
-    0x20                          //[0]
-    0x00                          //[0,32]
+    //return call.value
+    0x20          // [32]
+    0x00          // [0, 32]
     return
 }

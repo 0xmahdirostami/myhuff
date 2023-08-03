@@ -68,7 +68,7 @@ Solution: [RevertString.huff](https://github.com/0xmahdirostami/myhuff/blob/main
 
 Puzzle 11: write a functionality that takes an array of uint256 as an argument and returns the sum of all the numbers
 <br>
-Solution:
+Solution: [SumArray.huff](https://github.com/0xmahdirostami/myhuff/blob/main/huff-puzzles-solution/SumArray.huff)
 
 ---
 

@@ -13,28 +13,15 @@
 
 
 #define macro MAIN() = takes(0) returns(0) {
-    push0                   // [0]
-    calldataload            // [calldata]
-    0xe0                    // [224, calldata]
-    shr                     // [function selector]
-    __FUNC_SIG(multiply)    // [function selector(multiply), function selector]
-    eq                      // [function selector(multiply)==function selector]
-    multiplyJump            // [dispatch, function selector(multiply)==function selector]
-    jumpi                   // jump if (function selector(multiply)==function selector)
+    // Grab the function selector from the calldata
+    0x00 calldataload 0xE0 shr                      // [selector]
+    dup1 __FUNC_SIG(multiply) eq multiply jumpi     // [selector]
 
-    // revert if !(function selector(add1)==function selector)
-    0x00 
-    0x00 
-    revert
+    // Revert if no functions match
+    0x00 0x00 revert
 
     // dispatch
-    multiplyJump:
-        multiply()
-
-
-}
-
-#define macro multiply() = takse(0) returns(0) {
+    multiply:
     0x04            // [4]
     calldataload    // [a]
     dup1            // [a, a]
@@ -49,35 +36,28 @@
     iszero          // [0==(a*b), (a*b), b, a]
     zeroJump        // [dispatch, 0==(a*b), (a*b), b, a]
     jumpi           // jump if 0==(a*b)
-                    // [dispatch, 0, (a*b), b, a]
-    pop        
-    pop             // [(a*b), b, a]
+            
     dup1            // [(a*b), (a*b), b, a]
     swap3           // [a, (a*b), b, (a*b)]
     swap1           // [(a*b), a, b, (a*b)]
     div             // [(a*b)/a, b, (a*b)]
     eq              // [((a*b)/a)==b, (a*b)]
-    successJump      // [dispatch, ((a*b)/a)==b, (a*b)]
+    successJump     // [dispatch, ((a*b)/a)==b, (a*b)]
     jumpi           // jump if ((a*b)/a)==b
 
     // revert if overflow
-    0x00 
-    0x00 
-    revert
+    0x00 0x00 revert
 
     // dispatch
     zeroJump:
-        0x00
-        0x00
-        mstore
-        0x20            // [32]
-        0x00            // [0, 32]
-        return
+    0x00 0x00
+    mstore
+    0x20 0x00   
+    return
         
     successJump:
-        0x00            // [0, (a*b)]
-        mstore          // []
-        0x20            // [32]
-        0x00            // [0, 32]
-        return
+    0x00           
+    mstore        
+    0x20 0x00   
+    return
 }
